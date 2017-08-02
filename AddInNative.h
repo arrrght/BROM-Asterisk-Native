@@ -28,9 +28,6 @@ public:
 		ePropRegEx,
 		ePropVersion,
 		ePropErrorAsEvent,
-		ePropIsDemo,
-		ePropID,
-		ePropKey,
 		ePropLast      // Always last
 	};
 
@@ -79,8 +76,6 @@ public:
 	
 	bool connected;
 	bool listen;
-	bool isDemo;                      // Демо режим
-	int count_event = 0;                  // Кол-во сообщений до ДЕМО режима
 
 	bool		SendEvent(wchar_t *msg, wchar_t *Data);
 	
@@ -93,7 +88,7 @@ public:
 
 	
 private:
-	wchar_t* wsName = L"ROM-Asterisk-Native";
+	wchar_t* wsName = L"BROM-Asterisk-Native";
 
 	long findName(const wchar_t* names[], const wchar_t* name, const uint32_t size) const;
 	void addError(uint32_t wcode, const wchar_t* source, const wchar_t* descriptor, long code);
@@ -121,7 +116,7 @@ private:
 	
 	
 	bool GetValueFromKey(HKEY hKey, LPCWSTR lpSubKey, LPCWSTR lpValue, LPVOID pBuffer, ULONG uSize);
-	void SetComputerID(wchar_t* id, DWORD date);
+	//void SetComputerID(wchar_t* id, DWORD date);
 	// *Защита
 	
 };

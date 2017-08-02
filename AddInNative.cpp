@@ -17,39 +17,39 @@
 
 #pragma comment(lib, "Ws2_32.lib")
 
-static const wchar_t *g_PropNames[] = { L"Connected",
-L"Listen",
-L"RegEx",
-L"Version",
-L"ErrorAsEvent",
-L"IsDemo",
-L"ID",
-L"Key"
+static const wchar_t *g_PropNames[] = {
+	L"Connected",
+	L"Listen",
+	L"RegEx",
+	L"Version",
+	L"ErrorAsEvent",
 };
 
-static const wchar_t *g_PropNamesRu[] = { L"ĞŸĞ¾Ğ´ĞºĞ»ÑÑ‡ĞµĞ½Ğ¾",
-L"Ğ ĞµĞ¶Ğ¸Ğ¼ĞŸÑ€Ğ¾ÑĞ»ÑƒÑˆĞ¸Ğ²Ğ°Ğ½Ğ¸Ñ",
-L"Ğ ĞµĞ³ÑƒĞ»ÑÑ€Ğ½Ğ¾ĞµĞ’Ñ‹Ñ€Ğ°Ğ¶ĞµĞ½Ğ¸Ğµ",
-L"Ğ’ĞµÑ€ÑĞ¸Ñ",
-L"ĞÑˆĞ¸Ğ±ĞºĞ°ĞšĞ°ĞºĞ¡Ğ¾Ğ±Ñ‹Ñ‚Ğ¸Ğµ",
-L"Ğ”ĞµĞ¼Ğ¾Ğ½ÑÑ‚Ñ€Ğ°Ñ†Ğ¸Ğ¾Ğ½Ğ½Ñ‹Ğ¹Ğ ĞµĞ¶Ğ¸Ğ¼",
-L"Ğ˜Ğ´ĞµĞ½Ñ‚Ğ¸Ñ„Ğ¸ĞºĞ°Ñ‚Ğ¾Ñ€",
-L"ĞšĞ»ÑÑ‡ĞŸÑ€Ğ¾Ğ´ÑƒĞºÑ‚Ğ°"
+static const wchar_t *g_PropNamesRu[] = {
+	L"Ïîäêëş÷åíî",
+	L"ĞåæèìÏğîñëóøèâàíèÿ",
+	L"ĞåãóëÿğíîåÂûğàæåíèå",
+	L"Âåğñèÿ",
+	L"ÎøèáêàÊàêÑîáûòèå",
+	L"Èäåíòèôèêàòîğ",
+	L"Êëş÷Ïğîäóêòà"
 };
 
 
-static const wchar_t *g_MethodNames[] = { L"Connect",
-L"Disconnect",
-L"SendCommand",
-L"ListenMode",
-L"SetRegEx"
+static const wchar_t *g_MethodNames[] = {
+	L"Connect",
+	L"Disconnect",
+	L"SendCommand",
+	L"ListenMode",
+	L"SetRegEx"
 };
 
-static const wchar_t *g_MethodNamesRu[] = { L"ĞŸĞ¾Ğ´ĞºĞ»ÑÑ‡Ğ¸Ñ‚ÑŒÑÑ",
-L"ĞÑ‚ĞºĞ»ÑÑ‡Ğ¸Ñ‚ÑŒÑÑ",
-L"Ğ’Ñ‹Ğ¿Ğ¾Ğ»Ğ½Ğ¸Ñ‚ÑŒĞšĞ¾Ğ¼Ğ°Ğ½Ğ´Ñƒ",
-L"Ğ ĞµĞ¶Ğ¸Ğ¼ĞŸÑ€Ğ¾ÑĞ»ÑƒÑˆĞ¸Ğ²Ğ°Ğ½Ğ¸Ñ",
-L"Ğ£ÑÑ‚Ğ°Ğ½Ğ¾Ğ²Ğ¸Ñ‚ÑŒĞ ĞµĞ³ÑƒĞ»ÑÑ€Ğ½Ğ¾ĞµĞ’Ñ‹Ñ€Ğ°Ğ¶ĞµĞ½Ğ¸Ğµ"
+static const wchar_t *g_MethodNamesRu[] = {
+	L"Ïîäêëş÷èòüñÿ",
+	L"Îòêëş÷èòüñÿ",
+	L"ÂûïîëíèòüÊîìàíäó",
+	L"ĞåæèìÏğîñëóøèâàíèÿ",
+	L"ÓñòàíîâèòüĞåãóëÿğíîåÂûğàæåíèå"
 };
 
 
@@ -102,7 +102,7 @@ const WCHAR_T* GetClassNames()
 }
 
 
-// ĞŸĞ¾Ñ‚Ğ¾Ğº Ğ¾Ğ±Ñ€Ğ°Ğ±Ğ¾Ñ‚ĞºĞ¸ ĞÑÑ‚ĞµÑ€ÑĞ¸Ğº // ĞºĞ¾Ğ´ Ğ¿Ñ€Ğ¾ÑĞ»ÑƒÑˆĞ¸Ğ²Ğ°ÑÑ‰ĞµĞ³Ğ¾ Ñ‚Ñ€ĞµĞ´Ğ°
+// Ïîòîê îáğàáîòêè Àñòåğñèê // êîä ïğîñëóøèâàşùåãî òğåäà
 static unsigned int _stdcall RecvInThread(void*p)
 {
 	
@@ -141,18 +141,7 @@ static unsigned int _stdcall RecvInThread(void*p)
 
 					std::string nstr(s1.substr(0, cutAt + SEPLN.length()));
 					s1 = s1.substr(cutAt + SEPLN.length());
-
-					if (tcpCl->isDemo && tcpCl->count_event >= 100)
-					{
-						tcpCl->count_event = 101;
-						std::string demo_result = std::regex_replace(nstr, demo_r, demo_repl);
-						res = CHAR_2_WCHAR((char*)demo_result.c_str());
-					}
-					else
-					{
-						res = CHAR_2_WCHAR((char*)nstr.c_str());
-					}
-
+					res = CHAR_2_WCHAR((char*)nstr.c_str());
 					tcpCl->SendEvent(L"Received", res);
 				}
 
@@ -220,22 +209,9 @@ bool CAddInNative::Init(void* pConnection)
 		return false;
 	}
 	
-	DWORD initDate;
-	wchar_t* productID = new wchar_t[100];
 	ULONG len = 100;
 
-	if (GetValueFromKey(HKEY_LOCAL_MACHINE, L"Software\\Microsoft\\Windows NT\\CurrentVersion", L"ProductId", productID, len)
-		&& (GetValueFromKey(HKEY_LOCAL_MACHINE, L"Software\\Microsoft\\Windows NT\\CurrentVersion", L"InstallDate", &initDate, sizeof(initDate))))
-	{
-		SetComputerID(productID, initDate);
-	}
-	
 	connected = false;
-	isDemo = true;
-
-	
-	delete[] productID;
-	
 		
 	return true;
 }
@@ -252,7 +228,7 @@ void CAddInNative::Done()
 //---------------------------------------------------------------------------//
 bool CAddInNative::RegisterExtensionAs(WCHAR_T** wsExtensionName)
 {
-	const wchar_t* wsExtension = L"ROM-Asterisk-Native";
+	const wchar_t* wsExtension = L"BROM-Asterisk-Native";
 	int iActualSize = ::wcslen(wsExtension) + 1;
 	WCHAR_T* dest = 0;
 
@@ -379,44 +355,6 @@ bool CAddInNative::GetPropVal(const long lPropNum, tVariant* pvarPropVal)
 		TV_I4(pvarPropVal) = errorAsEvent;
 		break;
 		}
-	case ePropIsDemo:
-		{
-		TV_VT(pvarPropVal) = VTYPE_BOOL;
-		TV_I4(pvarPropVal) = isDemo;
-		break;
-		}
-	case ePropID:
-	{
-		str_var = computer_id;
-		size_str_var = wcslen(str_var);
-
-		if (m_iMemory)
-		{
-			if (m_iMemory->AllocMemory((void**)&pvarPropVal->pwstrVal, size_str_var * sizeof(WCHAR_T)))
-			{
-				::convToShortWchar(&pvarPropVal->pwstrVal, str_var, size_str_var);
-				pvarPropVal->strLen = size_str_var;
-				TV_VT(pvarPropVal) = VTYPE_PWSTR;
-			}
-		}
-		break;
-	}
-	case ePropKey:
-		{
-		str_var = key;
-		size_str_var = wcslen(str_var);
-
-		if (m_iMemory)
-		{
-			if (m_iMemory->AllocMemory((void**)&pvarPropVal->pwstrVal, size_str_var * sizeof(WCHAR_T)))
-			{
-				::convToShortWchar(&pvarPropVal->pwstrVal, str_var, size_str_var);
-				pvarPropVal->strLen = size_str_var;
-				TV_VT(pvarPropVal) = VTYPE_PWSTR;
-			}
-		}
-		break;
-		}
 	default:
 		{
 		return false;
@@ -428,7 +366,7 @@ bool CAddInNative::GetPropVal(const long lPropNum, tVariant* pvarPropVal)
 //---------------------------------------------------------------------------//
 bool CAddInNative::SetPropVal(const long lPropNum, tVariant* varPropVal)
 {
-	switch (lPropNum) // Ğ½Ğµ Ğ·Ğ°Ğ±Ñ‹Ñ‚ÑŒ, Ñ‡Ñ‚Ğ¾ Ğ½ĞµĞºĞ¾Ñ‚Ğ¾Ñ€Ñ‹Ğµ ÑĞ²Ğ¾Ğ¹ÑÑ‚Ğ²Ğ° Ğ½Ğµ Ğ·Ğ°Ğ¿Ğ¸ÑÑ‹Ğ²Ğ°ÑÑ‚ÑÑ, Ğ° Ñ‚Ğ¾Ğ»ÑŒĞºĞ¾ Ñ‡Ğ¸Ñ‚Ğ°ÑÑ‚ÑÑ
+	switch (lPropNum) // íå çàáûòü, ÷òî íåêîòîğûå ñâîéñòâà íå çàïèñûâàşòñÿ, à òîëüêî ÷èòàşòñÿ
 	{
 
 	case ePropErrorAsEvent:
@@ -436,17 +374,6 @@ bool CAddInNative::SetPropVal(const long lPropNum, tVariant* varPropVal)
 		if (TV_VT(varPropVal) != VTYPE_BOOL)
 			return false;
 		errorAsEvent = TV_BOOL(varPropVal);
-		return true;
-		break;
-		}
-	case ePropKey:
-		{
-		if (TV_VT(varPropVal) != VTYPE_PWSTR) // Ğ¿Ñ€Ğ¾Ğ²ĞµÑ€ÑĞµĞ¼ Ñ‚Ğ¸Ğ¿ Ğ¿ĞµÑ€Ğ²Ğ¾Ğ³Ğ¾ Ğ¿Ğ°Ñ€Ğ°Ğ¼ĞµÑ‚Ñ€Ğ°
-			return false;
-
-		wchar_t* t_key = 0;
-		convFromShortWchar(&t_key, varPropVal->pwstrVal);
-		key = t_key;
 		return true;
 		break;
 		}
@@ -461,7 +388,7 @@ bool CAddInNative::SetPropVal(const long lPropNum, tVariant* varPropVal)
 //---------------------------------------------------------------------------//
 bool CAddInNative::IsPropReadable(const long lPropNum)
 {
-	return true; // Ğ²ÑĞµ ÑĞ²Ğ¾Ğ¹ÑÑ‚Ğ²Ğ° Ğ¼Ğ¾Ğ¶Ğ½Ğ¾ Ñ‡Ğ¸Ñ‚Ğ°Ñ‚ÑŒ
+	return true; // âñå ñâîéñòâà ìîæíî ÷èòàòü
 }
 //---------------------------------------------------------------------------//
 bool CAddInNative::IsPropWritable(const long lPropNum)
@@ -471,10 +398,6 @@ bool CAddInNative::IsPropWritable(const long lPropNum)
 
 	case ePropErrorAsEvent:
 		return true;
-	case ePropKey:
-		return true;
-	case ePropIsDemo:
-		return false;
 	default:
 		return false;
 	}
@@ -607,15 +530,15 @@ bool CAddInNative::CallAsFunc(const long lMethodNum, tVariant* pvarRetValue, tVa
 	case eMethodConnect:
 	{
 		if (!lSizeArray || !paParams)
-			return false; // ĞµÑĞ»Ğ¸ Ğ½ĞµÑ‚ Ğ¿Ğ°Ñ€Ğ°Ğ¼ĞµÑ‚Ñ€Ğ¾Ğ² Ñ‚Ğ¾ Ğ¾ÑˆĞ¸Ğ±ĞºĞ°
+			return false; // åñëè íåò ïàğàìåòğîâ òî îøèáêà
 
-		if (TV_VT(paParams) != VTYPE_PWSTR) // Ğ¿Ñ€Ğ¾Ğ²ĞµÑ€ÑĞµĞ¼ Ñ‚Ğ¸Ğ¿ Ğ¿ĞµÑ€Ğ²Ğ¾Ğ³Ğ¾ Ğ¿Ğ°Ñ€Ğ°Ğ¼ĞµÑ‚Ñ€Ğ° Ğ¡ĞµÑ€Ğ²ĞµÑ€
+		if (TV_VT(paParams) != VTYPE_PWSTR) // ïğîâåğÿåì òèï ïåğâîãî ïàğàìåòğà Ñåğâåğ
 			return false;
 
 		wchar_t* server = 0;
 		::convFromShortWchar(&server, TV_WSTR(paParams));
 
-		if (TV_VT(paParams + 1) != VTYPE_PWSTR) // Ğ¿Ñ€Ğ¾Ğ²ĞµÑ€ÑĞµĞ¼ Ñ‚Ğ¸Ğ¿ Ğ²Ñ‚Ğ¾Ñ€Ğ¾Ğ³Ğ¾ Ğ¿Ğ°Ñ€Ğ°Ğ¼ĞµÑ‚Ñ€Ğ° ĞŸĞ¾Ñ€Ñ‚
+		if (TV_VT(paParams + 1) != VTYPE_PWSTR) // ïğîâåğÿåì òèï âòîğîãî ïàğàìåòğà Ïîğò
 			return false;
 
 		wchar_t* port = 0;
@@ -630,7 +553,7 @@ bool CAddInNative::CallAsFunc(const long lMethodNum, tVariant* pvarRetValue, tVa
 	case eMethodDisconnect:
 		{
 			if (lSizeArray || paParams)
-				return false; // ĞµÑĞ»Ğ¸ ĞµÑÑ‚ÑŒ Ğ¿Ğ°Ñ€Ğ°Ğ¼ĞµÑ‚Ñ€Ñ‹ Ñ‚Ğ¾ Ğ¾ÑˆĞ¸Ğ±ĞºĞ°
+				return false; // åñëè åñòü ïàğàìåòğû òî îøèáêà
 
 			TV_VT(pvarRetValue) = VTYPE_BOOL;
 			TV_BOOL(pvarRetValue) = Disconnect();
@@ -642,9 +565,9 @@ bool CAddInNative::CallAsFunc(const long lMethodNum, tVariant* pvarRetValue, tVa
 	case eMethodSendCommand:
 		{
 			if (!lSizeArray || !paParams)
-				return false; // ĞµÑĞ»Ğ¸ Ğ½ĞµÑ‚ Ğ¿Ğ°Ñ€Ğ°Ğ¼ĞµÑ‚Ñ€Ğ¾Ğ² Ñ‚Ğ¾ Ğ¾ÑˆĞ¸Ğ±ĞºĞ°
+				return false; // åñëè íåò ïàğàìåòğîâ òî îøèáêà
 
-			if (TV_VT(paParams) != VTYPE_PWSTR) // Ğ¿Ñ€Ğ¾Ğ²ĞµÑ€ÑĞµĞ¼ Ñ‚Ğ¸Ğ¿ Ğ¿ĞµÑ€Ğ²Ğ¾Ğ³Ğ¾ Ğ¿Ğ°Ñ€Ğ°Ğ¼ĞµÑ‚Ñ€Ğ°
+			if (TV_VT(paParams) != VTYPE_PWSTR) // ïğîâåğÿåì òèï ïåğâîãî ïàğàìåòğà
 				return false;
 
 			wchar_t* msg = 0;
@@ -659,9 +582,9 @@ bool CAddInNative::CallAsFunc(const long lMethodNum, tVariant* pvarRetValue, tVa
 	case eMethodListenMode:
 		{
 			if (!lSizeArray || !paParams)
-				return false; // ĞµÑĞ»Ğ¸ Ğ½ĞµÑ‚ Ğ¿Ğ°Ñ€Ğ°Ğ¼ĞµÑ‚Ñ€Ğ¾Ğ² Ñ‚Ğ¾ Ğ¾ÑˆĞ¸Ğ±ĞºĞ°
+				return false; // åñëè íåò ïàğàìåòğîâ òî îøèáêà
 
-			if (TV_VT(paParams) != VTYPE_BOOL) // Ğ¿Ñ€Ğ¾Ğ²ĞµÑ€ÑĞµĞ¼ Ñ‚Ğ¸Ğ¿ Ğ¿ĞµÑ€Ğ²Ğ¾Ğ³Ğ¾ Ğ¿Ğ°Ñ€Ğ°Ğ¼ĞµÑ‚Ñ€Ğ°
+			if (TV_VT(paParams) != VTYPE_BOOL) // ïğîâåğÿåì òèï ïåğâîãî ïàğàìåòğà
 				return false;
 
 
@@ -675,9 +598,9 @@ bool CAddInNative::CallAsFunc(const long lMethodNum, tVariant* pvarRetValue, tVa
 	case eMethodSetRegEx:
 		{
 			if (!lSizeArray || !paParams)
-				return false; // ĞµÑĞ»Ğ¸ Ğ½ĞµÑ‚ Ğ¿Ğ°Ñ€Ğ°Ğ¼ĞµÑ‚Ñ€Ğ¾Ğ² Ñ‚Ğ¾ Ğ¾ÑˆĞ¸Ğ±ĞºĞ°
+				return false; // åñëè íåò ïàğàìåòğîâ òî îøèáêà
 
-			if (TV_VT(paParams) != VTYPE_PWSTR) // Ğ¿Ñ€Ğ¾Ğ²ĞµÑ€ÑĞµĞ¼ Ñ‚Ğ¸Ğ¿ Ğ¿ĞµÑ€Ğ²Ğ¾Ğ³Ğ¾ Ğ¿Ğ°Ñ€Ğ°Ğ¼ĞµÑ‚Ñ€Ğ°
+			if (TV_VT(paParams) != VTYPE_PWSTR) // ïğîâåğÿåì òèï ïåğâîãî ïàğàìåòğà
 				return false;
 			try
 			{
@@ -841,9 +764,7 @@ bool CAddInNative::SendEvent(wchar_t* msg, wchar_t* Data)
 
 				if (std::regex_search(Data, r))
 				{
-					if (isDemo) { count_event = count_event + 1; }
 					res = m_iConnect->ExternalEvent(wsName, msg, Data);
-
 					return res;
 				}
 
@@ -853,43 +774,43 @@ bool CAddInNative::SendEvent(wchar_t* msg, wchar_t* Data)
 				switch (e.code())
 				{
 				case std::regex_constants::error_collate:
-					res = m_iConnect->ExternalEvent(wsName, L"ĞĞµĞºĞ¾Ñ€Ñ€ĞµĞºÑ‚Ğ½Ğ°Ñ Ğ¡Ñ‚Ñ€Ğ¾ĞºĞ° Regex", L"error_collate");
+					res = m_iConnect->ExternalEvent(wsName, L"Íåêîğğåêòíàÿ Ñòğîêà Regex", L"error_collate");
 					return res;
 				case std::regex_constants::error_ctype:
-					res = m_iConnect->ExternalEvent(wsName, L"ĞĞµĞºĞ¾Ñ€Ñ€ĞµĞºÑ‚Ğ½Ğ°Ñ Ğ¡Ñ‚Ñ€Ğ¾ĞºĞ° Regex", L"error_ctype");
+					res = m_iConnect->ExternalEvent(wsName, L"Íåêîğğåêòíàÿ Ñòğîêà Regex", L"error_ctype");
 					return res;
 				case std::regex_constants::error_escape:
-					res = m_iConnect->ExternalEvent(wsName, L"ĞĞµĞºĞ¾Ñ€Ñ€ĞµĞºÑ‚Ğ½Ğ°Ñ Ğ¡Ñ‚Ñ€Ğ¾ĞºĞ° Regex", L"error_escape");
+					res = m_iConnect->ExternalEvent(wsName, L"Íåêîğğåêòíàÿ Ñòğîêà Regex", L"error_escape");
 					return res;
 				case std::regex_constants::error_backref:
-					res = m_iConnect->ExternalEvent(wsName, L"ĞĞµĞºĞ¾Ñ€Ñ€ĞµĞºÑ‚Ğ½Ğ°Ñ Ğ¡Ñ‚Ñ€Ğ¾ĞºĞ° Regex", L"error_backref");
+					res = m_iConnect->ExternalEvent(wsName, L"Íåêîğğåêòíàÿ Ñòğîêà Regex", L"error_backref");
 					return res;
 				case std::regex_constants::error_brack:
-					res = m_iConnect->ExternalEvent(wsName, L"ĞĞµĞºĞ¾Ñ€Ñ€ĞµĞºÑ‚Ğ½Ğ°Ñ Ğ¡Ñ‚Ñ€Ğ¾ĞºĞ° Regex", L"error_brack");
+					res = m_iConnect->ExternalEvent(wsName, L"Íåêîğğåêòíàÿ Ñòğîêà Regex", L"error_brack");
 					return res;
 				case std::regex_constants::error_paren:
-					res = m_iConnect->ExternalEvent(wsName, L"ĞĞµĞºĞ¾Ñ€Ñ€ĞµĞºÑ‚Ğ½Ğ°Ñ Ğ¡Ñ‚Ñ€Ğ¾ĞºĞ° Regex", L"error_paren");
+					res = m_iConnect->ExternalEvent(wsName, L"Íåêîğğåêòíàÿ Ñòğîêà Regex", L"error_paren");
 					return res;
 				case std::regex_constants::error_brace:
-					res = m_iConnect->ExternalEvent(wsName, L"ĞĞµĞºĞ¾Ñ€Ñ€ĞµĞºÑ‚Ğ½Ğ°Ñ Ğ¡Ñ‚Ñ€Ğ¾ĞºĞ° Regex", L"error_brace");
+					res = m_iConnect->ExternalEvent(wsName, L"Íåêîğğåêòíàÿ Ñòğîêà Regex", L"error_brace");
 					return res;
 				case std::regex_constants::error_badbrace:
-					res = m_iConnect->ExternalEvent(wsName, L"ĞĞµĞºĞ¾Ñ€Ñ€ĞµĞºÑ‚Ğ½Ğ°Ñ Ğ¡Ñ‚Ñ€Ğ¾ĞºĞ° Regex", L"error_badbrace");
+					res = m_iConnect->ExternalEvent(wsName, L"Íåêîğğåêòíàÿ Ñòğîêà Regex", L"error_badbrace");
 					return res;
 				case std::regex_constants::error_range:
-					res = m_iConnect->ExternalEvent(wsName, L"ĞĞµĞºĞ¾Ñ€Ñ€ĞµĞºÑ‚Ğ½Ğ°Ñ Ğ¡Ñ‚Ñ€Ğ¾ĞºĞ° Regex", L"error_range");
+					res = m_iConnect->ExternalEvent(wsName, L"Íåêîğğåêòíàÿ Ñòğîêà Regex", L"error_range");
 					return res;
 				case std::regex_constants::error_space:
-					res = m_iConnect->ExternalEvent(wsName, L"ĞĞµĞºĞ¾Ñ€Ñ€ĞµĞºÑ‚Ğ½Ğ°Ñ Ğ¡Ñ‚Ñ€Ğ¾ĞºĞ° Regex", L"error_space");
+					res = m_iConnect->ExternalEvent(wsName, L"Íåêîğğåêòíàÿ Ñòğîêà Regex", L"error_space");
 					return res;
 				case std::regex_constants::error_badrepeat:
-					res = m_iConnect->ExternalEvent(wsName, L"ĞĞµĞºĞ¾Ñ€Ñ€ĞµĞºÑ‚Ğ½Ğ°Ñ Ğ¡Ñ‚Ñ€Ğ¾ĞºĞ° Regex", L"error_badrepeat");
+					res = m_iConnect->ExternalEvent(wsName, L"Íåêîğğåêòíàÿ Ñòğîêà Regex", L"error_badrepeat");
 					return res;
 				case std::regex_constants::error_complexity:
-					res = m_iConnect->ExternalEvent(wsName, L"ĞĞµĞºĞ¾Ñ€Ñ€ĞµĞºÑ‚Ğ½Ğ°Ñ Ğ¡Ñ‚Ñ€Ğ¾ĞºĞ° Regex", L"error_complexity");
+					res = m_iConnect->ExternalEvent(wsName, L"Íåêîğğåêòíàÿ Ñòğîêà Regex", L"error_complexity");
 					return res;
 				case std::regex_constants::error_stack:
-					res = m_iConnect->ExternalEvent(wsName, L"ĞĞµĞºĞ¾Ñ€Ñ€ĞµĞºÑ‚Ğ½Ğ°Ñ Ğ¡Ñ‚Ñ€Ğ¾ĞºĞ° Regex", L"error_stack");
+					res = m_iConnect->ExternalEvent(wsName, L"Íåêîğğåêòíàÿ Ñòğîêà Regex", L"error_stack");
 					return res;
 
 				default:
@@ -901,9 +822,8 @@ bool CAddInNative::SendEvent(wchar_t* msg, wchar_t* Data)
 		}
 		else
 		{
-			if (isDemo) { count_event = count_event + 1; }
-				bool res = m_iConnect->ExternalEvent(wsName, msg, Data);
-				return res;
+			res = m_iConnect->ExternalEvent(wsName, msg, Data);
+			return res;
 		}
 	}
 
@@ -911,7 +831,7 @@ bool CAddInNative::SendEvent(wchar_t* msg, wchar_t* Data)
 }
 
 
-// Ğ±Ğ¸Ğ±Ğ»Ğ¸Ğ¾Ñ‚ĞµĞºĞ° WINSOCK Ñ‚Ñ€Ğ°Ğ´Ğ¸Ñ†Ğ¸Ğ¾Ğ½Ğ½Ğ¾ Ğ²Ğ¾Ğ·Ğ²Ñ€Ğ°Ñ‰Ğ°ĞµÑ‚ 0 (Ğ½Ğ¾Ğ»ÑŒ) ĞµÑĞ»Ğ¸ Ğ²Ñ‹Ğ¿Ğ¾Ğ»Ğ½ĞµĞ½Ğ¸Ğµ Ñ„ÑƒĞ½ĞºÑ†Ğ¸Ğ¸ ÑƒÑĞ¿ĞµÑˆĞ½Ğ¾
+// áèáëèîòåêà WINSOCK òğàäèöèîííî âîçâğàùàåò 0 (íîëü) åñëè âûïîëíåíèå ôóíêöèè óñïåøíî
 bool CAddInNative::Connect(wchar_t* server, wchar_t* port)
 {
 	WSADATA wsaData;
@@ -990,7 +910,7 @@ bool CAddInNative::Connect(wchar_t* server, wchar_t* port)
 	
 	SendEvent(L"Connected", server_port);
 
-	return true; // Ğ²ÑĞµ ĞĞš
+	return true; // âñå ÎÊ
 }
 
 bool CAddInNative::Disconnect()
@@ -1040,8 +960,6 @@ bool CAddInNative::Disconnect()
 
 bool CAddInNative::ListenMode(int flag)
 {
-	if(_wcsicmp(valid_key, key) == 0) { isDemo = false; } else { isDemo = false; }
-
 	if (flag == 1)
 	{
 		
@@ -1113,7 +1031,7 @@ bool CAddInNative::setRegEx(wchar_t* str_regex)
 }
 
 
-// Ğ¾Ğ±Ñ€Ğ°Ğ±Ğ¾Ñ‚Ñ‡Ğ¸ĞºĞ¸ Ğ¿ÑĞµĞ²Ğ´Ğ¾-ÑĞ¾Ğ±Ñ‹Ñ‚Ğ¸Ğ¹
+// îáğàáîò÷èêè ïñåâäî-ñîáûòèé
 
 void CAddInNative::OnDisconnect()
 {
@@ -1138,7 +1056,7 @@ void CAddInNative::OnError(long scode, wchar_t *descr)
 
 
 	if (m_iConnect)
-		m_iConnect->AddError(ADDIN_E_FAIL, wsName, descr, scode); //Ğ•ÑĞ»Ğ¸ scode Ğ¸Ğ¼ĞµĞµÑ‚ Ğ½Ğµ Ğ½ÑƒĞ»ĞµĞ²Ğ¾Ğµ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ğµ â€“ Ğ±ÑƒĞ´ĞµÑ‚ ÑĞ³ĞµĞ½ĞµÑ€Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ½Ğ¾ Ğ¸ÑĞºĞ»ÑÑ‡ĞµĞ½Ğ¸Ğµ, ĞºĞ¾Ñ‚Ğ¾Ñ€Ğ¾Ğµ Ğ¼Ğ¾Ğ¶ĞµÑ‚ Ğ±Ñ‹Ñ‚ÑŒ Ğ¿ĞµÑ€ĞµÑ…Ğ²Ğ°Ñ‡ĞµĞ½Ğ¾ Ğ¸ Ğ¾Ğ±Ñ€Ğ°Ğ±Ğ¾Ñ‚Ğ°Ğ½Ğ¾ ÑÑ€ĞµĞ´ÑÑ‚Ğ²Ğ°Ğ¼Ğ¸ Ğ²ÑÑ‚Ñ€Ğ¾ĞµĞ½Ğ½Ğ¾Ğ³Ğ¾ ÑĞ·Ñ‹ĞºĞ° 1Ğ¡:ĞŸÑ€ĞµĞ´Ğ¿Ñ€Ğ¸ÑÑ‚Ğ¸Ñ.
+		m_iConnect->AddError(ADDIN_E_FAIL, wsName, descr, scode); //Åñëè scode èìååò íå íóëåâîå çíà÷åíèå – áóäåò ñãåíåğèğîâàíî èñêëş÷åíèå, êîòîğîå ìîæåò áûòü ïåğåõâà÷åíî è îáğàáîòàíî ñğåäñòâàìè âñòğîåííîãî ÿçûêà 1Ñ:Ïğåäïğèÿòèÿ.
 
 
 }
@@ -1174,47 +1092,6 @@ bool CAddInNative::GetValueFromKey(HKEY hKey, LPCWSTR lpSubKey, LPCWSTR lpValue,
 	return TRUE;
 }
 
-// --------------------------------------------------------------Innova-IT ------------------------------------------------------------------------//
-void CAddInNative::SetComputerID(wchar_t * id, DWORD initDate)
-{
-
-	wcscpy_s(computer_id, id);
-	wcsncat_s(computer_id, L"-", sizeof(L"-"));
-	wchar_t strDate[20] = { 0 };
-
-	swprintf_s(strDate, L"%i", (int)initDate);
-
-
-	wcsncat_s(computer_id, strDate, 10);
-
-	for (int i = 1; computer_id[i - 1] != 0; i++)
-	{
-		if (computer_id[i - 1] > 47 && computer_id[i - 1] <= 57)
-		{
-			if (i <= 10)
-				valid_key[i - 1] = (wchar_t)computer_id[i - 1] + 20 + i;
-			else if (i>10 && i <= 20)
-				valid_key[i - 1] = (wchar_t)computer_id[i - 1] + 65 - i / 2;
-			else if (i >= 21 && i <= 35)
-				valid_key[i - 1] = (wchar_t)computer_id[i - 1] + 33 - i / 3;
-		}
-		else if (computer_id[i - 1] > 64 && computer_id[i - 1] <= 90)
-		{
-			if (i <= 10)
-				valid_key[i - 1] = (wchar_t)computer_id[i - 1] + 32 - i;
-			else if (i > 10 && i <= 20)
-			{
-				if (computer_id[i - 1] < 77) { valid_key[i - 1] = (wchar_t)computer_id[i - 1] + i / 2; }
-				else { valid_key[i - 1] = (wchar_t)valid_key[i - 1] - i / 2; }
-			}
-			else if (i >= 21 && i <= 35) { valid_key[i - 1] = (wchar_t)computer_id[i - 1]; }
-		}
-
-		else { valid_key[i - 1] = (wchar_t)computer_id[i - 1]; }
-	}
-
-	return;
-}
 
 // --------------------------------------------------------------Innova-IT ------------------------------------------------------------------------//
 char* WCHAR_2_CHAR(wchar_t *in_str)
